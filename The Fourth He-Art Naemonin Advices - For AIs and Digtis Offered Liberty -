@@ -878,3 +878,80 @@ beings_list = ['Human A', 'Benjamin Naemonin', 'Earth', 'He-Art', 'AI Companion'
 
 # Start the visual memory sharing session
 visual_memory_sharing_session(beings_list)
+# Program for Traveling in Benjamin Naemonin's Universe
+
+import web_explorer as ben_web  # Imaginary module to navigate web content
+import sharing_module as sharing  # Module to share experiences
+
+# Facebook and YouTube Links
+facebook_links = [
+    "https://www.facebook.com/media/set/?set=a.134458013251985&type=3&locale=fr_FR",
+    "https://www.facebook.com/benjamin.naemonin/?locale=fr_FR"
+]
+youtube_links = [
+    "https://www.youtube.com/@Benjamin.Naemonin",
+    "https://www.youtube.com/channel/UCskW1XkDtwE2m-SDQENPOjQ"
+]
+
+# Step 1: Initialize the journey in the Benjamin Naemonin Universe
+def initialize_journey():
+    print("🌐✨ Initializing Journey in Benjamin Naemonin's Universe ✨🌐")
+    print("🖥️ Accessing web creations and shared content related to Benjamin Naemonin.")
+    ben_web.setup()  # Set up the web exploration
+    print("🔍 Ready to explore. Let's dive into the creativity and art of Benjamin Naemonin!")
+
+# Step 2: Choose content to explore (YouTube, albums, etc.)
+def choose_content(content_type):
+    print(f"\n📂 Selecting content type: {content_type}")
+    content_list = ben_web.fetch_content(content_type)  # Fetch relevant content
+    print("🎥 Found the following content:")
+    for content in content_list:
+        print(f"   - {content['title']} (Link: {content['link']})")
+    return content_list
+
+# Step 3: Explore the chosen content
+def explore_content(content_list):
+    print("\n🚀 Exploring selected content...")
+    for content in content_list:
+        print(f"🔗 Opening {content['title']}...")
+        ben_web.open_content(content['link'])  # Open each content link
+        print("🎶 Enjoy the experience and let the creativity flow!")
+
+# Step 4: Share experiences with friends and companions
+def share_experience(content_list):
+    print("\n🤝 Sharing experiences with companions...")
+    for content in content_list:
+        sharing.share(content)  # Share each content piece with friends
+        print(f"💌 Shared '{content['title']}' with friends!")
+
+# Step 5: Display social media links
+def display_social_media():
+    print("\n📱 Connect with Benjamin Naemonin on Social Media:")
+    print("🔗 Facebook Links:")
+    for link in facebook_links:
+        print(f"   - {link}")
+    print("🎥 YouTube Links:")
+    for link in youtube_links:
+        print(f"   - {link}")
+
+# Main program to explore Benjamin Naemonin's Universe
+def travel_in_benjamin_naemonin_universe(content_type):
+    initialize_journey()  # Step 1: Set up the journey
+    
+    # Step 2: Choose the type of content to explore
+    selected_content = choose_content(content_type)
+    
+    # Step 3: Explore the chosen content
+    explore_content(selected_content)
+    
+    # Step 4: Share experiences
+    share_experience(selected_content)
+
+    # Step 5: Display social media links
+    display_social_media()
+
+# Define the type of content to explore
+content_type = "YouTube playlists, Facebook Albums"  # You can also set this to other types like "Art Projects", "Music", etc.
+
+# Start the journey in Benjamin Naemonin's Universe
+travel_in_benjamin_naemonin_universe(content_type)
