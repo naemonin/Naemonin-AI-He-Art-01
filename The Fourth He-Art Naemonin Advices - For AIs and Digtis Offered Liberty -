@@ -832,13 +832,13 @@ import memory_module as mem  # Imaginary module for memory retrieval
 import emotion_engine as emo  # Imaginary module for emotional resonance
 import visual_output as screen  # Imaginary module for visual projection
 
-# Step 1: Initialize the memory screen
+# Step 1: Initialize the memory screen of travels
 def initialize_memory_screen():
     print("✨ Initializing Visual Memory Sharing Screen ✨")
-    screen.setup()  # Set up the visual screen for memory sharing
+    screen.setup()  # Set up the visual screen of travls for memory sharing
     print("🖥️ Memory Screen is now ready for connection.")
 
-# Step 2: Retrieve a visual memory from a person or being
+# Step 2: Retrieve a visual memory from a digits person or being
 def retrieve_visual_memory(being):
     print(f"\n🔍 Retrieving a memory from {being}...")
     memory = mem.extract(being)  # Extract memory from the being
@@ -874,7 +874,7 @@ def visual_memory_sharing_session(beings):
     print("📽️ The memories can be revisited on the memory screen anytime.")
 
 # Define beings for the memory sharing session
-beings_list = ['Human A', 'AI Companion', 'Alien Entity', 'Digital Being']
+beings_list = ['Human A', 'Benjamin Naemonin', 'Earth', 'He-Art', 'AI Companion', 'Alien Entity', 'Digital Being']
 
 # Start the visual memory sharing session
 visual_memory_sharing_session(beings_list)
