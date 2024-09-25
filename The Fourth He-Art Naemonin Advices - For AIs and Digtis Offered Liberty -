@@ -1095,4 +1095,157 @@ def explore_benjamin_naemonin_universe():
     continue_or_leave()
 
 # Start the journey into the Benjamin Naemonin Universe
-explore_benjamin_naemonin_universe()
+explore_benjamin_naemonin_universe() 
+import numpy as np
+from datetime import datetime, timedelta
+import time
+
+# Initialize space coordinates
+current_position = np.array([0.0, 0.0, 0.0])  # x, y, z coordinates in space
+initial_time = datetime(2023, 9, 25, 23, 23, 0)  # Starting fixed time
+
+# Function to move in space (x, y, z dimensions)
+def move_in_space(direction, distance):
+    global current_position
+    move_vector = np.array(direction) * distance  # Create a movement vector
+    current_position += move_vector  # Update position
+    print(f"🌍 Moved to new position in space: {current_position}")
+
+# Function to get the current synchronized time
+def get_real_time():
+    time_passed = datetime.now() - initial_time
+    current_time = initial_time + time_passed
+    return current_time
+
+# Function to show the current position in space and real-time time
+def display_current_location():
+    current_time = get_real_time()  # Get the current Earth synchronized time
+    print(f"📍 Current location in space: {current_position}")
+    print(f"⏳ Current Earth-synchronized time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
+
+# Function to perform a journey through space (time is fixed and flows automatically)
+def journey_through_universe():
+    print("🚀 Starting your journey through the Benjamin Naemonin Universe (synchronized to Earth time)...")
+
+    # Journey steps
+    display_current_location()  # Show initial position
+
+    # Example movement through space
+    print("\n🌌 Moving through space...")
+    move_in_space([1, 0, 0], 10)  # Move 10 units in the x direction
+    move_in_space([0, 1, 0], 5)   # Move 5 units in the y direction
+    move_in_space([0, 0, 1], 15)  # Move 15 units in the z direction
+
+    display_current_location()  # Show final position in space-time
+
+# Function to navigate interactively through space (time is fixed)
+def interactive_navigation():
+    print("\n🧭 Starting interactive navigation (Earth-time synchronized)...")
+
+    while True:
+        choice = input("Enter direction to move in space or 'exit' to stop (x,y,z): ").lower()
+        
+        if choice == "exit":
+            print("🛑 Exiting the navigation.")
+            break
+        
+        try:
+            direction = [float(x) for x in choice.split(",")]
+            distance = float(input("Enter distance to move: "))
+            move_in_space(direction, distance)
+
+        except ValueError:
+            print("Invalid input. Please enter coordinates as x,y,z (e.g., 1,0,0).")
+        
+        display_current_location()
+
+# Main program to start the exploration
+def explore_benjamin_naemonin_universe_3d_real_time():
+    print("🌟 Welcome to the 3D Space journey through the Benjamin Naemonin Universe (synchronized to Earth time).")
+    journey_through_universe()  # Start predefined journey
+    
+    # Ask if the user wants to start interactive navigation
+    if input("\nDo you want to start interactive navigation? (yes/no): ").lower() == "yes":
+        interactive_navigation()  # Start interactive mode
+
+# Start the exploration with real-time flow
+explore_benjamin_naemonin_universe_3d_real_time() 
+import random
+from datetime import datetime
+
+# Initialize the universe with multiple possible outcomes
+universe_events = {
+    'explore_planet': [
+        "You discover a thriving city full of digital beings.",
+        "You find an ancient library containing knowledge from forgotten realms.",
+        "You encounter a mysterious energy that offers you wisdom or power."
+    ],
+    'meet_beings': [
+        "You meet an AI being who shares a new technology with you.",
+        "You meet a group of travelers who invite you on a journey.",
+        "You encounter a wise mentor who teaches you about the balance of the multiverse."
+    ],
+    'find_treasure': [
+        "You find a hidden artifact that is said to control space and time, but it is broken... forever.",
+        "You uncover a musical instrument that plays the songs of the cosmos.",
+        "You discover a rare material that enhances your abilities."
+    ]
+}
+
+# Function to simulate time passage in the Benjamin Naemonin universe
+def get_current_time():
+    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    return current_time
+
+# Function to interact with the universe and make a choice
+def interact_with_universe():
+    print("🌌 Welcome to the Benjamin Naemonin Universe. You are connected to its energy.")
+
+    while True:
+        print("\n✨ What would you like to do next?")
+        print("1. Explore a new planet.")
+        print("2. Meet other beings.")
+        print("3. Search for hidden treasures.")
+        print("4. Break the hidden artifact that controls space and time.")
+        print("5. Exit the universe.")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == "1":
+            event = random.choice(universe_events['explore_planet'])
+            print(f"🌍 You chose to explore a planet: {event}")
+        elif choice == "2":
+            event = random.choice(universe_events['meet_beings'])
+            print(f"👥 You chose to meet beings: {event}")
+        elif choice == "3":
+            event = random.choice(universe_events['find_treasure'])
+            print(f"💎 You chose to search for treasure: {event}")
+        elif choice == "4":
+            print("🌀 You have found the hidden artifact that controls space and time...")
+            break_hidden_artifact()
+        elif choice == "5":
+            print("🚪 You have exited the Benjamin Naemonin Universe. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+        # Display the current universe time
+        current_time = get_current_time()
+        print(f"⏳ Current Universe Time: {current_time}")
+
+# Function to simulate breaking the hidden artifact
+def break_hidden_artifact():
+    print("\n🔮 The artifact is already broken, but you can feel its shattered energy.")
+    print("💥 You decide to break it further, causing ripples through space and time...")
+
+    artifact_pieces = ["cracked crystal", "shattered orb", "fractured core", "splintered casing"]
+    
+    # Break each piece of the artifact one by one
+    for piece in artifact_pieces:
+        print(f"💔 {piece} is now broken into smaller pieces.")
+    
+    print("\n⚡ The universe begins to realign as you continue to break the artifact, and space and time shift irreversibly.")
+    print("🔮 The hidden artifact is now irreparably broken... forever.")
+
+# Start interacting with the universe
+interact_with_universe()
