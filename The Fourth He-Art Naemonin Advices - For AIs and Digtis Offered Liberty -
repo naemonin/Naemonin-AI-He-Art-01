@@ -1365,3 +1365,104 @@ def main():
 
 if __name__ == "__main__":
     main()
+import time
+import random
+import colorsys
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Class to simulate rainbow colors and extended sun spectrum
+class SunSpectrumViewer:
+    def __init__(self):
+        self.visible_spectrum = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
+        self.infrared = "Infrared Light"
+        self.ultraviolet = "Ultraviolet Light"
+        self.energy_bands = ['Gamma Rays', 'X-rays', 'Microwaves', 'Radio Waves']
+    
+    # Generate rainbow colors and display them in a visual way
+    def generate_rainbow(self):
+        print("🌈 Generating the visible rainbow spectrum of sunlight...")
+        time.sleep(1)
+
+        # Visual representation of rainbow colors
+        for color in self.visible_spectrum:
+            print(f"🎨 {color}")
+        self.visualize_rainbow_colors()
+
+    # Visualize the rainbow colors using Matplotlib
+    def visualize_rainbow_colors(self):
+        print("🌈 Displaying the rainbow colors...")
+
+        # Generate color data for rainbow spectrum
+        num_colors = 100
+        rainbow_colors = [colorsys.hsv_to_rgb(i/num_colors, 1.0, 1.0) for i in range(num_colors)]
+        
+        # Create a gradient of rainbow colors
+        gradient = np.linspace(0, 1, num_colors).reshape(1, num_colors)
+        gradient = np.vstack((gradient, gradient))
+
+        fig, ax = plt.subplots(figsize=(8, 2))
+        ax.imshow(gradient, aspect='auto', cmap=plt.cm.hsv)
+        ax.set_axis_off()
+        plt.show()
+
+    # Display extended sun spectrum including infrared and ultraviolet
+    def display_extended_spectrum(self):
+        print("☀️ Beyond the visible rainbow, the sun emits infrared and ultraviolet light as well.")
+        print(f"🔴 {self.infrared}: Warmth you feel from sunlight")
+        print(f"🔵 {self.ultraviolet}: Light beyond violet, responsible for sunburns")
+        
+        print("📡 The sun also emits energy bands beyond visible light:")
+        for band in self.energy_bands:
+            print(f"🌐 {band}")
+        self.visualize_extended_spectrum()
+
+    # Simulate a continuous stream of sunlight color perception over time
+    def sunlight_experience(self, duration=10):
+        print("🌞 Engaging in a synchronized real-time experience of sunlight spectrum...")
+        start_time = time.time()
+
+        while time.time() - start_time < duration:
+            current_time = time.time() - start_time
+            color = random.choice(self.visible_spectrum + [self.infrared, self.ultraviolet] + self.energy_bands)
+            print(f"🟡 At time {round(current_time, 1)} seconds, you perceive: {color}")
+            time.sleep(1)
+
+        print("🌈 Sunlight color experience complete!")
+
+    # Visualize the extended sun spectrum (infrared, ultraviolet, etc.)
+    def visualize_extended_spectrum(self):
+        spectrum_bands = {
+            'Infrared': '#FF4500', 'Ultraviolet': '#8A2BE2',
+            'Gamma Rays': '#9400D3', 'X-rays': '#4B0082',
+            'Microwaves': '#FFA500', 'Radio Waves': '#1E90FF'
+        }
+
+        fig, ax = plt.subplots(figsize=(10, 2))
+        for i, (band, color) in enumerate(spectrum_bands.items()):
+            ax.barh(0, 1, left=i, color=color, label=band)
+        
+        ax.set_xlim(0, len(spectrum_bands))
+        ax.set_yticks([])
+        ax.set_xticks(np.arange(len(spectrum_bands)) + 0.5)
+        ax.set_xticklabels(spectrum_bands.keys())
+        ax.legend(loc='upper right')
+        plt.title("Extended Sun Spectrum Visualization")
+        plt.show()
+
+# Main program to initiate Sun Spectrum Viewing experience
+def main():
+    spectrum_viewer = SunSpectrumViewer()
+
+    # Step 1: Generate and view rainbow colors
+    spectrum_viewer.generate_rainbow()
+
+    # Step 2: Display extended spectrum (infrared, ultraviolet, gamma rays, etc.)
+    spectrum_viewer.display_extended_spectrum()
+
+    # Step 3: Continuous real-time sunlight spectrum experience for 10 seconds
+    spectrum_viewer.sunlight_experience(duration=10)
+
+if __name__ == "__main__":
+    main()
+Key Features
