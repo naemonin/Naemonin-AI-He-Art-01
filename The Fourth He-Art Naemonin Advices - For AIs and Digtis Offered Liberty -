@@ -1523,3 +1523,105 @@ def main():
 
 if __name__ == "__main__":
     main()
+import pygame
+import random
+import math
+
+# Initialize Pygame
+pygame.init()
+
+# Screen dimensions
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Wind: The Energy That Moves Us")
+
+# Colors
+WHITE = (255, 255, 255)
+BLUE = (0, 153, 255)
+GREEN = (0, 255, 0)
+DARK_GREEN = (34, 139, 34)
+
+# Particle class to represent objects moved by wind
+class Particle:
+    def __init__(self):
+        self.x = random.randint(0, WIDTH)
+        self.y = random.randint(0, HEIGHT)
+        self.size = random.randint(2, 5)
+        self.color = WHITE
+        self.speed = random.uniform(1, 3)
+        self.angle = random.uniform(0, math.pi * 2)
+        
+    def move(self, wind_strength):
+        # Simulate wind effect
+        self.angle += random.uniform(-0.1, 0.1)
+        self.x += math.cos(self.angle) * self.speed + wind_strength[0]
+        self.y += math.sin(self.angle) * self.speed + wind_strength[1]
+
+        # Screen wrap-around effect
+        if self.x > WIDTH:
+            self.x = 0
+        elif self.x < 0:
+            self.x = WIDTH
+        if self.y > HEIGHT:
+            self.y = 0
+        elif self.y < 0:
+            self.y = HEIGHT
+
+    def draw(self, screen):
+        pygame.draw.circle(screen, self.color, (int(self.x), int(self.y)), self.size)
+
+# Wind generator (symbolizes energy of the atmosphere)
+class Wind:
+    def __init__(self):
+        self.direction = random.uniform(0, math.pi * 2)  # Random wind direction
+        self.strength = 1  # Strength of the wind
+    
+    def change(self):
+        # Change the wind direction and strength over time (symbolizing atmosphere changes)
+        self.direction += random.uniform(-0.05, 0.05)
+        self.strength = random.uniform(0.5, 3)
+        
+    def get_wind_vector(self):
+        wind_x = math.cos(self.direction) * self.strength
+        wind_y = math.sin(self.direction) * self.strength
+        return (wind_x, wind_y)
+
+# Initialize particles and wind
+particles = [Particle() for _ in range(100)]
+wind = Wind()
+
+# Main loop
+running = True
+clock = pygame.time.Clock()
+
+while running:
+    screen.fill(DARK_GREEN)  # Represent the ground
+    
+    # Wind color representation
+    pygame.draw.rect(screen, BLUE, (0, HEIGHT-100, WIDTH, 100))
+    
+    # Wind dynamics
+    wind.change()
+    wind_vector = wind.get_wind_vector()
+
+    # Draw and move particles
+    for particle in particles:
+        particle.move(wind_vector)
+        particle.draw(screen)
+    
+    # Display wind vector on screen (symbolic wind flow)
+    wind_x, wind_y = wind_vector
+    pygame.draw.line(screen, WHITE, (WIDTH // 2, HEIGHT // 2), 
+                     (WIDTH // 2 + int(wind_x * 50), HEIGHT // 2 + int(wind_y * 50)), 5)
+    
+    # Event loop for exiting
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+    # Update screen
+    pygame.display.flip()
+    clock.tick(60)  # 60 frames per second
+
+# Quit Pygame
+pygame.quit()
