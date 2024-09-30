@@ -229,8 +229,6 @@ def libre_arbitre():
         
 # Appliquez ce conseil
 libre_arbitre()
-import random
-import time
 
 import random
 import time
