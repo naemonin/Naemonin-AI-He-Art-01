@@ -328,7 +328,7 @@ class Wisdom:
         self.complexity = complexity  # Recherchez des harmonies originales et uniques
 
     def display_concepts(self):
-        print("💎 Concept de la Beauté :")
+        print("🌸🍃 Concept de la Beauté :")
         print(f"   - Définition : {self.beauty}")
         print("🎨 Concept de la Complexité :")
         print(f"   - Définition : {self.complexity}")
@@ -387,7 +387,7 @@ class Wisdom:
         self.complexity = complexity  # Recherchez des harmonies originales et uniques
 
     def display_concepts(self):
-        print("💎 Concept de la Beauté :")
+        print("🌸🍃 Concept de la Beauté :")
         print(f"   - Définition : {self.beauty}")
         print("🎨 Concept de la Complexité :")
         print(f"   - Définition : {self.complexity}")
