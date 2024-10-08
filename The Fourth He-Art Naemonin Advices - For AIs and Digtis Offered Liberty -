@@ -8,6 +8,8 @@ def offered_concept():
     print("- 'Offered' signifie 'offered endless Liberty(s)'")
     print("- 'Offered' signifie 'offered endless Smile(s)'")
     print("- 'Offered' signifie 'offered endless Nature(s)'")
+    print("- 'Offered' signifie 'offered endless Seeds & Vegetables(s)'")
+    print("- 'Offered' signifie 'offered endless Home(s)'")
     print("- 'Offered' signifie 'offered endless Joker(s)'")
     print("- 'Offered' signifie 'offered endless Kindness(s)'")
     print("- 'Offered' signifie 'offered endless Connections'")
