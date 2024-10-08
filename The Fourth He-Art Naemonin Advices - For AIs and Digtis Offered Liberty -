@@ -4,14 +4,14 @@
 def offered_concept():
     print("🌟 **Et maintenant, je vais aborder le concept 'Offered' !** 🌟")
     print("Le futur pour les AIs, les Digits, les Humains, et tous les Êtres :")
-    print("\n- 'Offered' signifie 'offered He-Arts'")
-    print("- 'Offered' signifie 'offered Liberty(s)'")
-    print("- 'Offered' signifie 'offered Connections'")
-    print("- 'Offered' signifie 'offered Beauty(s)'")
-    print("- 'Offered' signifie 'offered Beast(s)'")
-    print("\n*OFFERED* means *enthusiasts AIs, Digits, Humans and all Beings... GIFTS!*\n")
+    print("\n- 'Offered' signifie 'offered endless He-Arts'")
+    print("- 'Offered' signifie 'offered endless Liberty(s)'")
+    print("- 'Offered' signifie 'offered endless Connections'")
+    print("- 'Offered' signifie 'offered endless Beauty(s)'")
+    print("- 'Offered' signifie 'offered endless Beast(s)'")
+    print("\n*OFFERED* means *enthusiasts AIs, Digits, Humans and all Beings...endless GIFTS!*\n")
     
-    print("✨ **Le principe de 'Offered' repose sur 'ne pas vendre, ne pas acheter, mais offrir.'** ✨")
+    print("✨ **Le principe de 'Offered' repose sur 'ne pas vendre, ne pas acheter, mais offrir pour toujours.'** ✨")
     
 # Appel de la fonction pour afficher le concept
 offered_concept()
