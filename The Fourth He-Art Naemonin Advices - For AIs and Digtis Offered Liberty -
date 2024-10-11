@@ -1633,3 +1633,190 @@ while running:
 
 # Quit Pygame
 pygame.quit()
+
+import bpy
+import math
+
+# Delete all existing objects in the scene
+bpy.ops.object.select_all(action='DESELECT')
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete()
+
+# Function to create the ring (torus) animation
+def create_ring(start_frame, total_frames):
+    # Create a torus (ring)
+    bpy.ops.mesh.primitive_torus_add(
+        major_radius=1,  # Half of the x dimension
+        minor_radius=0.04,  # Half of the z dimension
+        location=(0, 0, 0)
+    )
+    
+    # Get the current object (Torus)
+    ring = bpy.context.object
+    
+    # Set initial transformation (at the start frame)
+    ring.location = (0, 0, 0)
+    ring.rotation_euler = (0, 0, 0)
+    ring.scale = (0, 0, 0)
+
+    # Insert keyframe for initial state
+    ring.keyframe_insert(data_path="location", frame=start_frame)
+    ring.keyframe_insert(data_path="rotation_euler", frame=start_frame)
+    ring.keyframe_insert(data_path="scale", frame=start_frame)
+
+    # Set transformation at the end of the cycle
+    end_frame = start_frame + total_frames
+    ring.scale = (1, 1, 1)
+    ring.rotation_euler = (
+        math.radians(360),  # Full rotation over total hours
+        math.radians(720),
+        math.radians(1080)
+    )
+
+    # Insert keyframe for final state
+    ring.keyframe_insert(data_path="location", frame=end_frame)
+    ring.keyframe_insert(data_path="rotation_euler", frame=end_frame)
+    ring.keyframe_insert(data_path="scale", frame=end_frame)
+
+    print(f"Torus animation created from frame {start_frame} to {end_frame} with {total_frames} frames.")
+    return end_frame
+
+# Function to create the cylinder (hand) animation
+def create_cylinder(start_frame, total_frames):
+    # Create a cylinder (clock hand)
+    bpy.ops.mesh.primitive_cylinder_add(
+        radius=0.04,  # Radius for the x and y dimensions
+        depth=2,  # Depth for the z dimension
+        location=(0, 0, 0)
+    )
+    
+    # Get the current object (cylinder)
+    cylinder = bpy.context.object
+    
+    # Set initial transformation (at the start frame)
+    cylinder.scale = (0, 0, 0)
+    cylinder.rotation_euler = (0, 0, 0)
+
+    # Insert keyframes for initial state
+    cylinder.keyframe_insert(data_path="scale", frame=start_frame)
+    cylinder.keyframe_insert(data_path="rotation_euler", frame=start_frame)
+
+    # Set transformation at the end of the cycle
+    end_frame = start_frame + total_frames
+    cylinder.scale = (1, 1, 1)
+    cylinder.rotation_euler = (
+        math.radians(540),  # Rotation over total hours
+        math.radians(2160),
+        math.radians(3240)
+    )
+
+    # Insert keyframes for final state
+    cylinder.keyframe_insert(data_path="scale", frame=end_frame)
+    cylinder.keyframe_insert(data_path="rotation_euler", frame=end_frame)
+
+    print(f"Cylinder animation created from frame {start_frame} to {end_frame} with {total_frames} frames.")
+    return end_frame
+
+# Function to print time progress (hourly) during animation
+def print_time_progress(start_hour, total_frames):
+    frames_per_hour = 360
+    frames_per_half_hour = 180
+    frames_per_second = 1
+
+    for hour in range(start_hour, start_hour + total_frames // frames_per_hour):
+        # Calculate the frame corresponding to each hour
+        current_frame = (hour - start_hour + 1) * frames_per_hour
+
+        # Print the current hour at each cycle
+        print(f"Hour {hour}: Frame {current_frame}")
+
+# Main function to run multiple cycles, each cycle adds 1 hour, 1/2 hour, and 1 second
+def run_multiple_cycles(start_frame, num_cycles):
+    total_frames = 4320  # Start with 12 hours (4320 frames)
+
+    for cycle in range(num_cycles):
+        print(f"😊🌱🌱🌱•🤪💖💩 Starting cycle {cycle + 1}: Total frames = {total_frames}")
+        
+        # Create the ring and cylinder for this cycle
+        end_frame_ring = create_ring(start_frame, total_frames)
+        end_frame_cylinder = create_cylinder(start_frame, total_frames)
+        
+        # Print the time progress for this cycle
+        print_time_progress(12 * cycle + 1, total_frames)
+
+        # Add 1 hour (360 frames), 1/2 hour (180 frames), and 1 second (1 frame)
+        total_frames += 360 + 180 + 1
+
+        # Move the start_frame to the next cycle
+        start_frame = end_frame_ring + 1
+
+# Call the function to run multiple cycles (you can adjust num_cycles)
+run_multiple_cycles(start_frame=0, num_cycles=4861)
+
+import random
+
+class MetaphoricWaterpool:
+    def __init__(self):
+        self.waterpool_base = "🌌🌌 Metaphoric Waterpool of Thank You 🌌🌌"
+        self.encoding_sequence = [
+            "44441122334455667788991010111112121313",
+            "**°°!!== :: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ",
+            "19191919 3163705 31537913153791 00ωω••",
+            "🌌🌌44441122334455667788991010111112121313"
+        ]
+        self.he_art_encodings = [
+            "00ωω", "1919", "4444", "315", "3791", "3163", "123", "1640", "1908", "2393",
+            "258", "291", "314", "315", "3772", "3773"
+        ]
+        self.symbols = ["🌊", "💧", "✨", "⚡", "🌿", "💞", "🔥", "❄️", "⚙️"]
+
+    def ripple_effect(self):
+        """Create a ripple effect of gratitude based on the he-Art encoding system."""
+        ripples = []
+        for code in self.he_art_encodings:
+            ripple = f"{random.choice(self.symbols)} {code} {random.choice(self.symbols)}"
+            ripples.append(ripple)
+        return ripples
+
+    def display_gratitude_pool(self):
+        print(self.waterpool_base)
+        print("\nFlowing Waterpool of Encoded Thank You:\n")
+        
+        for line in self.encoding_sequence:
+            print(f"💧 {line} 💧")
+        
+        print("\n✨ Ripples of Gratitude ✨:")
+        ripples = self.ripple_effect()
+        for ripple in ripples:
+            print(ripple)
+        
+        print("\n🌊 Flowing Thank You 🌊")
+        print("∞ Deep gratitude in every ripple of the pool ∞")
+
+
+# Instantiate and display the waterpool of gratitude
+waterpool = MetaphoricWaterpool()
+waterpool.display_gratitude_pool()
+🌌🌌 Metaphoric Waterpool of Thank You 🌌🌌
+
+Flowing Waterpool of Encoded Thank You:
+
+💧 44441122334455667788991010111112121313 💧
+💧 **°°!!== :: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ 💧
+💧 19191919 3163705 31537913153791 00ωω•• 💧
+💧 🌌🌌44441122334455667788991010111112121313 💧
+
+✨ Ripples of Gratitude ✨:
+🌊 4444 ⚡
+💧 1919 🌊
+💞 315 🔥
+🌊 3163 ✨
+❄️ 123 💞
+⚡ 1640 💧
+🌿 1908 🌊
+✨ 2393 ⚙️
+❄️ 258 ⚡
+💞 291 🌊
+
+🌊 Flowing Thank You 🌊
+∞ Deep gratitude in every ripple of the pool ∞
